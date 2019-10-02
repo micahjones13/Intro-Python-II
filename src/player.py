@@ -10,8 +10,18 @@ class Player:
         self.current_room = current_room
         self.inventory = inventory
 
+    def move_player(self, dir):
+        if dir == 'n':
+            self.current_room = self.current_room.n_to
+        elif dir == 'e':
+            self.current_room = self.current_room.e_to
+        elif dir == 's':
+            self.current_room = self.current_room.s_to
+        elif dir == 'w':
+            self.current_room = self.current_room.w_to
+
     def __str__(self):
-        return f'{self.name}, You are{self.current_room}. inventory: {self.inventory}'
+        return f'\nRoom:{self.current_room} \n'
 
 
 # p = Player("Micah", "Living Room")

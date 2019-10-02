@@ -61,7 +61,25 @@ while quit == False:
     if a == 'q':
         print('Thanks for playing!')
         break
-    elif a == 'n' or a == 'e' or a == 's' or a == 'w':
-        print('move player', a)
+    elif a == 'n':
+        if new_player.current_room.n_to == None:
+            print("You cannot move that direction")
+        else:
+            new_player.move_player(a)
+    elif a == 'e':
+        if new_player.current_room.e_to == None:
+            print("You cannot move that direction")
+        else:
+            new_player.move_player(a)
+    elif a == 's':
+        if new_player.current_room.s_to == None:
+            print("You cannot move that direction")
+        else:
+            new_player.move_player(a)
+    elif a == 'w':
+        if new_player.current_room.w_to == None:
+            print("You cannot move that direction")
+        else:
+            new_player.move_player(a)
     else:
-        print('You cannot do that')
+        print('Not valid input. please use n, e, s, w for direcitonal movement.')
