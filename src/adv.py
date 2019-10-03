@@ -72,7 +72,7 @@ while quit == False:
         print("Looking around, you see a: ", end='')
         for i in new_player.current_room.items:
             print(i.name)
-    user_input = input("what will you do? (n, e, s, w, take, drop): ")
+    user_input = input("\nwhat will you do? (n, e, s, w, take, drop): ")
     input_length = user_input.split()
     if len(input_length) == 1:
         
@@ -99,6 +99,17 @@ while quit == False:
                 print("You cannot move that direction")
             else:
                 new_player.move_player(user_input)
+        elif user_input == 'i' or user_input == 'inventory':
+            if len(new_player.inventory) == 0:
+                print("\nYou have no items")
+            else:
+                print("\nYou look at your current items: ")
+                for item in new_player.inventory:
+                    print(item)
+        elif user_input == 'leap' and new_player.current_room.name == 'Grand Overlook':
+            print("\nYou muster up all your courage and decide to leap the gap!\n You fall a few feet and hit an invisible bridge!")
+            print(f"\nCongrats, {new_player.name}, you've won!")
+            break
         else:
             print('Not valid input. please use n, e, s, w for direcitonal movement.')
     elif len(input_length) == 2:
@@ -109,7 +120,6 @@ while quit == False:
             input_item_name = user_input[5:]
             for item in new_player.current_room.items:
                 if item.name == input_item_name:
-                    print(f'you take the {item.name}')
                     new_player.take_item(item)
                     # print(item, 'what item looks like')
                     # !Must loop through inventory to avoid getting the obejct at memory
@@ -121,7 +131,7 @@ while quit == False:
             input_item_name = user_input[5:]
             new_player.drop_item(input_item_name)
             new_player.inventory.remove(items[input_item_name])
-            print(new_player.inventory, 'player inv after drop')
+            # print(new_player.inventory, 'player inv after drop')
             #add item to room it was dropped at
             new_player.current_room.items.append(items[input_item_name])
             

@@ -22,9 +22,9 @@ class Player:
     
     def take_item(self, item):
         # self.inventory = self.inventory.append(item)
-        print(f'You picked up a(n) {item}')
+        print(f'\nYou picked up a(n) {item}')
     def drop_item(self, item):
-        print(f'You dropped the {item}')
+        print(f'\nYou dropped the {item}')
 
 
     def __str__(self):
