@@ -19,9 +19,17 @@ class Player:
             self.current_room = self.current_room.s_to
         elif dir == 'w':
             self.current_room = self.current_room.w_to
+    
+    def take_item(self, item):
+        # self.inventory = self.inventory.append(item)
+        print(f'You picked up a(n) {item}')
+    def drop_item(self, item):
+        print(f'You dropped the {item}')
+
 
     def __str__(self):
         return f'\nRoom:{self.current_room} \n'
+    
 
 
 # p = Player("Micah", "Living Room")
