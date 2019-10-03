@@ -122,6 +122,8 @@ while quit == False:
             new_player.drop_item(input_item_name)
             new_player.inventory.remove(items[input_item_name])
             print(new_player.inventory, 'player inv after drop')
+            #add item to room it was dropped at
+            new_player.current_room.items.append(items[input_item_name])
             
         else:
             print('not valid command')
